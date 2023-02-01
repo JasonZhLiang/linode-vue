@@ -18,7 +18,7 @@ pipeline {
         stage('front-end unit test') {
           steps {
             sh '''cd curriculum-front
-npm intall
+npm install
 npm run test:unit'''
           }
         }
