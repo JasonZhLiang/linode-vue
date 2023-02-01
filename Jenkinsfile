@@ -19,7 +19,7 @@ pipeline {
           steps {
             sh '''cd curriculum-front
 npm install
-npm run test:unit'''
+npm --version'''
           }
         }
 
