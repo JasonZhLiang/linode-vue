@@ -8,14 +8,27 @@ pipeline {
     }
 
     stage('Log') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('Log') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('front-end unit test') {
+          steps {
+            sh '''cd curriculum
+npm intall
+npm run test:unit'''
+          }
+        }
+
       }
     }
 
     stage('Build') {
       steps {
-        sh 'docker build -f curriculum-front/Dockerfile -t fuze365/curriculum-front:latest .'
+        sh 'docker build -f curriculum-front/Dockerfile -t jasonbitheads/curriculum-front:latest .'
       }
     }
 
