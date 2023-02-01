@@ -33,10 +33,6 @@ npm run test:unit'''
     }
 
     stage('Log into Dockerhub') {
-      environment {
-        DOCKERHUB_USER = 'jasonbitheads'
-        DOCKERHUB_PASSWORD = 'jason7395'
-      }
       steps {
         sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
       }
