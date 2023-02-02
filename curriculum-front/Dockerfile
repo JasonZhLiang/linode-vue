@@ -5,6 +5,7 @@ RUN ls -l
 RUN npm install
 COPY curriculum-front ./
 RUN ls -l
+RUN export NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 COPY curriculum-front/nodeServer.js dist/nodeServer.js
 WORKDIR /usr/src/app/dist
