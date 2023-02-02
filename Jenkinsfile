@@ -18,7 +18,7 @@ pipeline {
         stage('front-end unit test') {
           steps {
             sh '''cd curriculum-front
-yarn install
+npm install --force --legacy-peer-deps
 npm run test:unit'''
           }
         }
