@@ -18,6 +18,7 @@ pipeline {
         stage('front-end unit test') {
           steps {
             sh '''cd curriculum-front
+node --max-old-space-size=1000 $(which npm) install
 npm run test:unit'''
           }
         }
