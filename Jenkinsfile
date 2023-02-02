@@ -18,7 +18,7 @@ pipeline {
         stage('front-end unit test') {
           steps {
             sh '''cd curriculum-front
-npm install --force --legacy-peer-deps
+node --max-old-space-size=1000 $(which npm) install
 npm run test:unit'''
           }
         }
